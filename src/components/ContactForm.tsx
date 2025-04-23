@@ -17,6 +17,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { toast } from "sonner"
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Nome precisa ter pelo menos 2 caracteres." }),
@@ -45,7 +46,7 @@ export function ContactForm() {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
     
     // Get UTM parameters from URL
@@ -71,16 +72,31 @@ export function ContactForm() {
       utm_id: utmId,
       ref: ref,
       fbclid: fbclid,
-      gclid: gclid
+      gclid: gclid,
+      timestamp: new Date().toISOString(),
     }
     
-    console.log("Form submitted:", formData)
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      const response = await fetch('https://coloqueseuwebhookaqui.agora.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      })
+
+      if (!response.ok) {
+        throw new Error('Network response was not ok')
+      }
+
+      toast.success('Formulário enviado com sucesso!')
       setSubmitted(true)
-    }, 1500)
+    } catch (error) {
+      console.error('Error:', error)
+      toast.error('Erro ao enviar formulário. Por favor, tente novamente.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
