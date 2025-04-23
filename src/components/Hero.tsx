@@ -12,7 +12,7 @@ export function Hero() {
   return <section className="relative w-full min-h-[85vh] overflow-hidden bg-clinic-blue/95 text-clinic-white">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="rgba(155, 89, 182, 0.3)" />
       
-      <div className="container mx-auto md:px-8 md:py-24 flex flex-col-reverse md:flex-row items-center px-[33px] py-[29px]">
+      <div className="container mx-auto md:px-8 md:py-24 flex flex-col-reverse md:flex-row items-center px-[33px] py-[22px]">
         {/* Text content */}
         <div className="w-full md:w-1/2 pt-12 md:pt-0 z-10">
           <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 md:pr-12">
