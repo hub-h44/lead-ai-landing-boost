@@ -1,33 +1,43 @@
+
 'use client';
 
 import { SplineScene } from "@/components/ui/spline-scene";
 import { Spotlight } from "@/components/ui/spotlight";
 import { Button } from "@/components/ui/button";
+import { useIsMobile } from "@/hooks/use-mobile";
+
 export function Hero() {
+  const isMobile = useIsMobile();
+  
   const scrollToForm = () => {
     document.getElementById('contact-form')?.scrollIntoView({
       behavior: 'smooth'
     });
   };
-  return <section className="relative w-full min-h-[85vh] overflow-hidden bg-clinic-blue/95 text-clinic-white">
+
+  return (
+    <section className="relative w-full min-h-[85vh] overflow-hidden bg-clinic-blue/95 text-clinic-white">
       <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="rgba(155, 89, 182, 0.3)" />
       
-      <div className="container mx-auto md:px-8 md:py-24 flex flex-col-reverse md:flex-row items-center px-[33px] py-[22px]">
+      <div className="container mx-auto px-4 md:px-8 py-8 md:py-24 flex flex-col-reverse md:flex-row items-center">
         {/* Text content */}
-        <div className="w-full md:w-1/2 pt-12 md:pt-0 z-10">
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 md:pr-12">
+        <div className="w-full md:w-1/2 pt-8 md:pt-0 z-10 text-center md:text-left">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold leading-tight mb-4 md:mb-6 md:pr-12">
             Seu maior concorrente não é a clínica da esquina: <span className="text-clinic-gold">é o silêncio depois do primeiro 'oi'.</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-clinic-white/90">
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 text-clinic-white/90 px-4 md:px-0">
             Decubra como ter um atendimento que funciona 24/7 e menos de 40s para ter uma resposta.
           </p>
-          <Button onClick={scrollToForm} className="bg-clinic-gold hover:bg-clinic-gold/90 text-clinic-blue font-bold text-lg px-8 py-6 rounded-lg">
+          <Button 
+            onClick={scrollToForm} 
+            className="w-[90%] md:w-auto bg-clinic-gold hover:bg-clinic-gold/90 text-clinic-blue font-bold text-base sm:text-lg px-4 sm:px-8 py-4 sm:py-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+          >
             Desbloquear diagnóstico estratégico
           </Button>
         </div>
         
         {/* 3D Model */}
-        <div className="w-full md:w-1/2 h-[300px] md:h-[600px] relative">
+        <div className="w-full md:w-1/2 h-[250px] sm:h-[300px] md:h-[600px] relative mb-6 md:mb-0">
           <SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="w-full h-full" />
         </div>
       </div>
@@ -39,5 +49,6 @@ export function Hero() {
           </path>
         </svg>
       </div>
-    </section>;
+    </section>
+  );
 }
