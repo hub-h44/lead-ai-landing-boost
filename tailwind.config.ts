@@ -17,6 +17,10 @@ export default {
 				'2xl': '1400px'
 			}
 		},
+		fontFamily: {
+			sans: ['Space Grotesk', 'sans-serif'],
+			montserrat: ['Montserrat', 'sans-serif'],
+		},
 		extend: {
 			colors: {
 				border: 'hsl(var(--border))',
@@ -52,6 +56,13 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+                clinic: {
+                    blue: '#2A5C8C',
+                    white: '#F5F7FA',
+                    green: '#88C9BF',
+                    gold: '#D4AF37',
+                    purple: '#9B59B6',
+                }
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
