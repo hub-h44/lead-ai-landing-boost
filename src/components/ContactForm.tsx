@@ -28,6 +28,8 @@ const formSchema = z.object({
   investment: z.string().min(1, { message: "Selecione o investimento pretendido." }),
 })
 
+const WEBHOOK_URL = 'https://n8n.hook.santto.co/webhook/sdr_santto_lovable'
+
 export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -76,12 +78,46 @@ export function ContactForm() {
     }
     
     try {
-      const response = await fetch('https://coloqueseuwebhookaqui.agora.com', {
+      const response = await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          // Additional structured fields for better organization
+          contact: {
+            name: values.name,
+            whatsapp: values.whatsapp,
+            email: values.email
+          },
+          company: {
+            teamSize: values.teamSize,
+            revenue: values.revenue
+          },
+          project: {
+            urgency: values.urgency,
+            investment: values.investment
+          },
+          utm: {
+            source: utmSource,
+            medium: utmMedium,
+            campaign: utmCampaign,
+            term: utmTerm,
+            content: utmContent,
+            id: utmId
+          },
+          tracking: {
+            ref: ref,
+            fbclid: fbclid,
+            gclid: gclid
+          },
+          metadata: {
+            timestamp: new Date().toISOString(),
+            origin: window.location.origin,
+            pathname: window.location.pathname
+          }
+        })
       })
 
       if (!response.ok) {
