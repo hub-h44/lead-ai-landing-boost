@@ -1,4 +1,3 @@
-
 'use client'
 
 import { useState } from 'react'
@@ -283,7 +282,7 @@ export function ContactForm() {
                   
                   <Button 
                     type="submit" 
-                    className="w-full bg-clinic-blue hover:bg-clinic-blue/90 text-white font-bold text-lg py-6"
+                    className="w-full bg-clinic-blue hover:bg-clinic-blue/90 text-white font-bold text-lg py-6 animate-form-button-pulse"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
