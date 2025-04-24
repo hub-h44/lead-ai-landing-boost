@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 
 export function Navbar() {
@@ -7,7 +6,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-clinic-blue/95 backdrop-blur-md border-b border-b-white/10">
+    <header className="sticky top-0 z-50 w-full bg-clinic-blue/80 backdrop-blur-md border-b border-b-white/5">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-2">
           <svg
@@ -40,7 +39,7 @@ export function Navbar() {
           <Button 
             onClick={scrollToForm} 
             variant="outline" 
-            className="bg-transparent border-clinic-gold text-clinic-gold hover:bg-clinic-gold hover:text-clinic-blue"
+            className="bg-transparent border-clinic-gold text-clinic-gold hover:bg-clinic-gold hover:text-clinic-blue animate-subtle-pulse"
           >
             Agende agora
           </Button>

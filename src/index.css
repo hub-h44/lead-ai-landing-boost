@@ -125,4 +125,20 @@
   .calculator-slider::-moz-range-thumb {
     @apply w-6 h-6 bg-clinic-blue rounded-full cursor-pointer;
   }
+
+  @keyframes subtle-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(212, 175, 55, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(212, 175, 55, 0);
+    }
+  }
+
+  .animate-subtle-pulse {
+    animation: subtle-pulse 2s infinite;
+  }
 }
