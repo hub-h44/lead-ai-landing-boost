@@ -1,3 +1,4 @@
+
 'use client';
 
 import { SplineScene } from "@/components/ui/spline-scene";
@@ -40,11 +41,21 @@ export function Hero() {
       </div>
       
       <div className="absolute bottom-0 left-0 w-full overflow-hidden">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" className="w-full h-auto">
-          <path fill="#F5F7FA" fillOpacity="0.8" d="M0,288L48,272C96,256,192,224,288,213.3C384,203,480,213,576,229.3C672,245,768,267,864,261.3C960,256,1056,224,1152,202.7C1248,181,1344,171,1392,165.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 1440 120" 
+          className="w-full h-auto"
+          preserveAspectRatio="none"
+        >
+          <path 
+            fill="#F5F7FA" 
+            fillOpacity="0.6" 
+            d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,120L1360,120C1280,120,1120,120,960,120C800,120,640,120,480,120C320,120,160,120,80,120L0,120Z"
+          >
           </path>
         </svg>
       </div>
     </section>
   );
 }
+
